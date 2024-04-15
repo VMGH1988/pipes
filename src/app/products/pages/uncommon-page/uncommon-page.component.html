@@ -1,1 +1,66 @@
-<p>uncommon-page works!</p>
+<p-panel header="Pipes no tan comunes" class="p-1">
+  <p>Pipes incluídos en Angular - Usualmente en el Common Module</p>
+</p-panel>
+
+<div class="grid ">
+  <div class="col-12 md:col-4">
+    <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
+
+      <p>{{name}}, es un placer {{gender | i18nSelect: invitationMap}} a nuestro evento</p>
+      <p-button (click)="changeClient()" label="Cambiar persona"></p-button>
+    </p-fieldset>
+  </div>
+  <div class="col-12 md:col-4">
+    <p-fieldset legend="i18nPlural Pipe" [toggleable]="true">
+      <p>Actualmente tenemos {{clients.length | i18nPlural:clientsMap}} esperando</p>
+      <p-button (click)="deleteCLient()" label="Borrar cliente"></p-button>
+    </p-fieldset>
+  </div>
+
+  <div class="col-12 md:col-4">
+    <p-fieldset legend="Slices Pipe" [toggleable]="true">
+      <b>Original</b>
+      <pre>{{clients}}</pre>
+
+      <b>Slice:0:2</b>
+      <pre>{{clients | slice:0:2}}</pre>
+
+      <b>Slice:1:2</b>
+      <pre>{{clients | slice:1:2}}</pre>
+
+
+      <b>Slice:3:3</b>
+      <pre>{{clients | slice:3:3}}</pre>
+
+      <b>Slice:0:-1</b>
+      <pre>{{clients | slice:0:-1}}</pre>
+
+    </p-fieldset>
+  </div>
+  <div class="col-12 md:col-4">
+    <p-fieldset legend="Json Pipe" [toggleable]="true">
+      {{person | json}}
+    </p-fieldset>
+  </div>
+  <div class="col-12 md:col-4">
+    <p-fieldset legend="KeyVaule Pipe" [toggleable]="true">
+      <ul>
+        <!--el for no podria usarse con person porque es un objeto, pero usando el keyvalue lo convierte en valores-->
+        <li *ngFor="let item of person |keyvalue">
+          <b>{{item.key | titlecase}}: </b> {{item.value}}
+        </li>
+      </ul>
+    </p-fieldset>
+  </div>
+  <div class="col-12 md:col-4">
+    <p-fieldset legend="Async Pipe" [toggleable]="true">
+    <pre *ngIf="!(myObservableTimer |async)">Resolviendo observable</pre>
+    <pre>{{myObservableTimer |async}}</pre>
+
+    <pre *ngIf="!(promiseValue |async)">Resolviendo promesa</pre>
+    <pre>{{promiseValue |async}}</pre>
+
+    </p-fieldset>
+  </div>
+
+</div>

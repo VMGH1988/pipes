@@ -5,6 +5,8 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { BasicPageComponent } from './pages/basic-page/basic-page.component';
 import { NumbersPageComponent } from './pages/numbers-page/numbers-page.component';
 import { UncommonPageComponent } from './pages/uncommon-page/uncommon-page.component';
+import { PrimeIcons } from 'primeng/api';
+import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 
 
 @NgModule({
@@ -15,7 +17,8 @@ import { UncommonPageComponent } from './pages/uncommon-page/uncommon-page.compo
   ],
   imports: [
     CommonModule,
-    ProductsRoutingModule
+    ProductsRoutingModule,
+    PrimeNgModule
   ]
 })
 export class ProductsModule { }
