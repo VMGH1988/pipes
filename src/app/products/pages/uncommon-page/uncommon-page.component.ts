@@ -45,7 +45,7 @@ public myObservableTimer: Observable<number> = interval(2000).pipe(
 public promiseValue: Promise<string> = new Promise((resolve, reject)=>{
   setTimeout(()=>{resolve('Tenemos data en la promesa.');
   console.log('Tenemos data en la promesa');
-  this.person.name='Otro nombre'
+  this.person.name='Otro nombre';
 },3500);
 });
 
